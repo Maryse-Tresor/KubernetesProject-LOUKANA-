@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mytresure
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mytresure
+  template:
+    metadata:
+      labels:
+        app: mytresure
+    spec:
+      containers:
+        - image: mloukana/my-service:2
+          imagePullPolicy: IfNotPresent
+          name: my-service
+      restartPolicy: Always
